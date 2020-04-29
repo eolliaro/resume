@@ -1,19 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora&family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Raleway&display=swap');
 
-$spacer: 2em;
+$spacer: .7cm;
+$page-margin: 5*$spacer;
+$color-body: #333;
+$color-impact: #000;
+
+$color-title: #03989e;
+$color-footer: transparentize($color-title, .5);
+$color-accent: $color-footer;
+$color-highlight: transparentize($color-accent, .3);
+
+$border-accent: 1px solid $color-accent;
+
+$content-size: 0.9em;
+
+@mixin print-version {
+  @media print {
+    @content
+  }
+}
+
+@page {
+  /*size: A4;
+  margin: $page-margin $spacer;
+  */
+  size: auto;
+  margin: 40mm 0 20mm 0;
+}
+
 
 body {
   font-family: 'Lora', serif;
+  font-weight: 400;
   padding: 0;
   margin: 0;
   background: #eee;
-  color: #333;
+  color: $color-body;
   font-size: 14px;
-}
-
-.position, b {
-  font-weight: normal;
-  color: #000;
 }
 
 .page {
@@ -22,21 +45,61 @@ body {
   margin: $spacer auto;
   padding: $spacer;
 
+  @include print-version {
+    padding: 0;
+    margin: 0;
+  }
+
+}
+
+a {
+  color: $color-body;
+  text-decoration: underline;
+}
+
+b {
+  font-weight: normal;
+  color: $color-impact;
+}
+
+h1, h2, h3, .position, header ul {
+  font-family: 'Raleway', sans-serif;
+  font-weight: normal;
 }
 
 h1, h2, h3 {
-  font-family: 'Raleway', sans-serif;
-  font-weight: normal;
   text-transform: uppercase;
+  page-break-after: avoid;
+}
 
+h2 {
+  color: $color-title;
+}
+
+h3 {
+  font-size: 1.3em;
 }
 
 header {
 
   text-align: center;
 
+  h1 {
+    margin: 0;
+    font-size: 4em;
+    $limit: 60%;
+    background-image: linear-gradient(
+                    to top, $color-highlight 0, $color-highlight $limit,
+                    transparent $limit, transparent 100%);
+    display: inline-block;
+    padding: 0 $spacer;
+  }
+
   .position {
-    font-size: 1.2em;
+    font-size: 1em;
+    margin: .5*$spacer 0;
+    color: $color-accent;
+    text-transform: uppercase;
   }
 
   ul, li {
@@ -45,12 +108,30 @@ header {
     display: block;
   }
 
+  ul {
+    margin: $spacer*1.5 0;
+    font-size: 1.2em;
+
+    &:before {
+      //content: "Highlights";
+      text-transform: uppercase;
+      font-size: 1.3em;
+      color: $color-accent;
+    }
+
+    li {
+      margin: .1em 0;
+    }
+  }
+
+
 }
 
 .experience, .skill {
   display: grid;
-  grid-template-columns: 8em auto;
+  grid-template-columns: 5em 1fr;
   grid-gap: $spacer;
+  page-break-inside:avoid;
 }
 
 .experience {
@@ -64,29 +145,47 @@ header {
 
   h3 {
     margin: 0;
-    font-size: 1.4em;
 
     small {
       font-size: .7em;
       text-transform: none;
       opacity: .7;
+
+      &:before {
+        content: "• ";
+      }
     }
+  }
+
+  .date {
+    text-align: right;
   }
 
   .about {
     .company {
+
+      font-weight: 700;
+
       &:after {
         content: ",";
       }
     }
   }
 
+  ul, p {
+    font-size: $content-size;
+  }
+
   ul {
     margin: 0;
     padding: 0;
-    padding-left: 1.5em;
+
     li {
-      list-style-type: square;
+      list-style-type: none;
+      margin-top: .6em;
+      &:first-child {
+        margin-top: 0;
+      }
     }
   }
 
@@ -100,20 +199,32 @@ header {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: $spacer;
-
   margin: $spacer 0;
 
+  > div > * {
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
-.skill {
+.skill, footer {
 
-  margin: .5em 0;
 
   ul, li {
     display: inline-block;
     padding: 0;
     margin: 0;
   }
+
+}
+
+.skill {
+
+  margin: .5em 0;
 
   li {
     &:after {
@@ -127,10 +238,37 @@ header {
 
   .label {
     font-weight: bold;
+    text-align: right;
   }
 
   .details {
-    font-style: italic;
+    font-size: $content-size;
   }
+
+}
+
+
+footer {
+
+  @include print-version {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+  }
+
+
+  margin-top: $spacer;
+  border-top: $border-accent;
+  text-align: center;
+  padding: .5*$spacer;
+
+  a {
+    color: $color-footer;
+    margin: 0 1em;
+    text-decoration: none;
+  }
+
 
 }

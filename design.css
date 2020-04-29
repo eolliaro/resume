@@ -1,6 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Lora&family=Raleway&display=swap");
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Raleway&display=swap");
+@page {
+  /*size: A4;
+  margin: $page-margin $spacer;
+  */
+  size: auto;
+  margin: 40mm 0 20mm 0;
+}
 body {
   font-family: "Lora", serif;
+  font-weight: 400;
   padding: 0;
   margin: 0;
   background: #eee;
@@ -8,44 +17,90 @@ body {
   font-size: 14px;
 }
 
-.position, b {
+.page {
+  max-width: 800px;
+  background: #fff;
+  margin: 0.7cm auto;
+  padding: 0.7cm;
+}
+@media print {
+  .page {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+a {
+  color: #333;
+  text-decoration: underline;
+}
+
+b {
   font-weight: normal;
   color: #000;
 }
 
-.page {
-  max-width: 800px;
-  background: #fff;
-  margin: 2em auto;
-  padding: 2em;
+h1, h2, h3, .position, header ul {
+  font-family: "Raleway", sans-serif;
+  font-weight: normal;
 }
 
 h1, h2, h3 {
-  font-family: "Raleway", sans-serif;
-  font-weight: normal;
   text-transform: uppercase;
+  page-break-after: avoid;
+}
+
+h2 {
+  color: #03989e;
+}
+
+h3 {
+  font-size: 1.3em;
 }
 
 header {
   text-align: center;
 }
+header h1 {
+  margin: 0;
+  font-size: 4em;
+  background-image: linear-gradient(to top, rgba(3, 152, 158, 0.2) 0, rgba(3, 152, 158, 0.2) 60%, transparent 60%, transparent 100%);
+  display: inline-block;
+  padding: 0 0.7cm;
+}
 header .position {
-  font-size: 1.2em;
+  font-size: 1em;
+  margin: 0.35cm 0;
+  color: rgba(3, 152, 158, 0.5);
+  text-transform: uppercase;
 }
 header ul, header li {
   margin: 0;
   padding: 0;
   display: block;
 }
+header ul {
+  margin: 1.05cm 0;
+  font-size: 1.2em;
+}
+header ul:before {
+  text-transform: uppercase;
+  font-size: 1.3em;
+  color: rgba(3, 152, 158, 0.5);
+}
+header ul li {
+  margin: 0.1em 0;
+}
 
 .experience, .skill {
   display: grid;
-  grid-template-columns: 8em auto;
-  grid-gap: 2em;
+  grid-template-columns: 5em 1fr;
+  grid-gap: 0.7cm;
+  page-break-inside: avoid;
 }
 
 .experience {
-  margin: 2em 0;
+  margin: 0.7cm 0;
 }
 .experience .details {
   display: grid;
@@ -53,23 +108,37 @@ header ul, header li {
 }
 .experience h3 {
   margin: 0;
-  font-size: 1.4em;
 }
 .experience h3 small {
   font-size: 0.7em;
   text-transform: none;
   opacity: 0.7;
 }
+.experience h3 small:before {
+  content: "• ";
+}
+.experience .date {
+  text-align: right;
+}
+.experience .about .company {
+  font-weight: 700;
+}
 .experience .about .company:after {
   content: ",";
+}
+.experience ul, .experience p {
+  font-size: 0.9em;
 }
 .experience ul {
   margin: 0;
   padding: 0;
-  padding-left: 1.5em;
 }
 .experience ul li {
-  list-style-type: square;
+  list-style-type: none;
+  margin-top: 0.6em;
+}
+.experience ul li:first-child {
+  margin-top: 0;
 }
 .experience p {
   margin: 0;
@@ -78,17 +147,24 @@ header ul, header li {
 .double-columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 2em;
-  margin: 2em 0;
+  grid-gap: 0.7cm;
+  margin: 0.7cm 0;
+}
+.double-columns > div > *:first-child {
+  margin-top: 0;
+}
+.double-columns > div > *:last-child {
+  margin-bottom: 0;
+}
+
+.skill ul, .skill li, footer ul, footer li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
 }
 
 .skill {
   margin: 0.5em 0;
-}
-.skill ul, .skill li {
-  display: inline-block;
-  padding: 0;
-  margin: 0;
 }
 .skill li:after {
   content: ",";
@@ -98,9 +174,31 @@ header ul, header li {
 }
 .skill .label {
   font-weight: bold;
+  text-align: right;
 }
 .skill .details {
-  font-style: italic;
+  font-size: 0.9em;
+}
+
+footer {
+  margin-top: 0.7cm;
+  border-top: 1px solid rgba(3, 152, 158, 0.5);
+  text-align: center;
+  padding: 0.35cm;
+}
+@media print {
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+  }
+}
+footer a {
+  color: rgba(3, 152, 158, 0.5);
+  margin: 0 1em;
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=design.css.map */
