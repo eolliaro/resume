@@ -1,12 +1,15 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Raleway&display=swap");
 @page {
-  /*size: A4;
-  margin: $page-margin $spacer;
-  */
-  size: auto;
-  margin: 40mm 0 20mm 0;
+  size: A4;
+  margin: 20%;
+  font-size: 21pt;
 }
+.spacer {
+  page-break-before: always;
+  height: 1.4cm;
+}
+
 body {
   font-family: "Lora", serif;
   font-weight: 400;
@@ -16,15 +19,22 @@ body {
   color: #333;
   font-size: 14px;
 }
+@media print {
+  body {
+    background: transparent;
+    padding: 1.4cm;
+  }
+}
 
 .page {
   max-width: 800px;
   background: #fff;
   margin: 0.7cm auto;
-  padding: 0.7cm;
+  padding: 1.4cm;
 }
 @media print {
   .page {
+    background: transparent;
     padding: 0;
     margin: 0;
   }
@@ -190,8 +200,8 @@ footer {
   footer {
     position: fixed;
     bottom: 0;
-    left: 0;
-    right: 0;
+    left: 1.4cm;
+    right: 1.4cm;
     background: #fff;
   }
 }
