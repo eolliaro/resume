@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Raleway&display=swap');
 
-$spacer: .7cm;
+$spacer: .65cm;
 $page-margin: $spacer*2;
 $color-body: #333;
 $color-impact: #000;
@@ -28,7 +28,7 @@ $content-size: 0.9em;
 
 .spacer {
   page-break-before: always;
-  height: $page-margin;
+  height: $page-margin/2;
 }
 
 body {
@@ -38,7 +38,7 @@ body {
   margin: 0;
   background: #eee;
   color: $color-body;
-  font-size: 14px;
+  font-size: 13.5px;
 
   @include print-version {
     background: transparent;

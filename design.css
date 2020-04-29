@@ -7,7 +7,7 @@
 }
 .spacer {
   page-break-before: always;
-  height: 1.4cm;
+  height: 0.65cm;
 }
 
 body {
@@ -17,20 +17,20 @@ body {
   margin: 0;
   background: #eee;
   color: #333;
-  font-size: 14px;
+  font-size: 13.5px;
 }
 @media print {
   body {
     background: transparent;
-    padding: 1.4cm;
+    padding: 1.3cm;
   }
 }
 
 .page {
   max-width: 800px;
   background: #fff;
-  margin: 0.7cm auto;
-  padding: 1.4cm;
+  margin: 0.65cm auto;
+  padding: 1.3cm;
 }
 @media print {
   .page {
@@ -76,11 +76,11 @@ header h1 {
   font-size: 4em;
   background-image: linear-gradient(to top, rgba(3, 152, 158, 0.2) 0, rgba(3, 152, 158, 0.2) 60%, transparent 60%, transparent 100%);
   display: inline-block;
-  padding: 0 0.7cm;
+  padding: 0 0.65cm;
 }
 header .position {
   font-size: 1em;
-  margin: 0.35cm 0;
+  margin: 0.325cm 0;
   color: rgba(3, 152, 158, 0.5);
   text-transform: uppercase;
 }
@@ -90,7 +90,7 @@ header ul, header li {
   display: block;
 }
 header ul {
-  margin: 1.05cm 0;
+  margin: 0.975cm 0;
   font-size: 1.2em;
 }
 header ul:before {
@@ -105,12 +105,12 @@ header ul li {
 .experience, .skill {
   display: grid;
   grid-template-columns: 5em 1fr;
-  grid-gap: 0.7cm;
+  grid-gap: 0.65cm;
   page-break-inside: avoid;
 }
 
 .experience {
-  margin: 0.7cm 0;
+  margin: 0.65cm 0;
 }
 .experience .details {
   display: grid;
@@ -157,8 +157,8 @@ header ul li {
 .double-columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 0.7cm;
-  margin: 0.7cm 0;
+  grid-gap: 0.65cm;
+  margin: 0.65cm 0;
 }
 .double-columns > div > *:first-child {
   margin-top: 0;
@@ -191,17 +191,17 @@ header ul li {
 }
 
 footer {
-  margin-top: 0.7cm;
+  margin-top: 0.65cm;
   border-top: 1px solid rgba(3, 152, 158, 0.5);
   text-align: center;
-  padding: 0.35cm;
+  padding: 0.325cm;
 }
 @media print {
   footer {
     position: fixed;
     bottom: 0;
-    left: 1.4cm;
-    right: 1.4cm;
+    left: 1.3cm;
+    right: 1.3cm;
     background: #fff;
   }
 }
