@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora&family=Raleway&display=swap');
 
+$spacer: 2em;
+
 body {
   font-family: 'Lora', serif;
   padding: 0;
@@ -17,8 +19,8 @@ body {
 .page {
   max-width: 800px;
   background: #fff;
-  margin: 2em auto;
-  padding: 2em;
+  margin: $spacer auto;
+  padding: $spacer;
 
 }
 
@@ -45,10 +47,15 @@ header {
 
 }
 
-.experience {
-  margin: 2em 0;
+.experience, .skill {
   display: grid;
-  grid-template-columns: 7em auto;
+  grid-template-columns: 8em auto;
+  grid-gap: $spacer;
+}
+
+.experience {
+
+  margin: $spacer 0;
 
   .details {
     display: grid;
@@ -85,6 +92,45 @@ header {
 
   p {
     margin: 0;
+  }
+
+}
+
+.double-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: $spacer;
+
+  margin: $spacer 0;
+
+}
+
+.skill {
+
+  margin: .5em 0;
+
+  ul, li {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    &:after {
+      content: ","
+    }
+
+    &:last-child:after {
+      content: "";
+    }
+  }
+
+  .label {
+    font-weight: bold;
+  }
+
+  .details {
+    font-style: italic;
   }
 
 }

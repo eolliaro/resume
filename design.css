@@ -38,10 +38,14 @@ header ul, header li {
   display: block;
 }
 
+.experience, .skill {
+  display: grid;
+  grid-template-columns: 8em auto;
+  grid-gap: 2em;
+}
+
 .experience {
   margin: 2em 0;
-  display: grid;
-  grid-template-columns: 7em auto;
 }
 .experience .details {
   display: grid;
@@ -69,6 +73,34 @@ header ul, header li {
 }
 .experience p {
   margin: 0;
+}
+
+.double-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2em;
+  margin: 2em 0;
+}
+
+.skill {
+  margin: 0.5em 0;
+}
+.skill ul, .skill li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+.skill li:after {
+  content: ",";
+}
+.skill li:last-child:after {
+  content: "";
+}
+.skill .label {
+  font-weight: bold;
+}
+.skill .details {
+  font-style: italic;
 }
 
 /*# sourceMappingURL=design.css.map */
