@@ -43,6 +43,7 @@ body {
 a {
   color: #333;
   text-decoration: underline;
+  text-decoration-color: rgba(3, 152, 158, 0.2);
 }
 
 b {
