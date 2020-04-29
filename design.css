@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora&family=Raleway&display=swap");
+body {
+  font-family: "Lora", serif;
+  padding: 0;
+  margin: 0;
+  background: #eee;
+  color: #333;
+  font-size: 14px;
+}
+
+.position, b {
+  font-weight: normal;
+  color: #000;
+}
+
+.page {
+  max-width: 800px;
+  background: #fff;
+  margin: 2em auto;
+  padding: 2em;
+}
+
+h1, h2, h3 {
+  font-family: "Raleway", sans-serif;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+header {
+  text-align: center;
+}
+header .position {
+  font-size: 1.2em;
+}
+header ul, header li {
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+.experience {
+  margin: 2em 0;
+  display: grid;
+  grid-template-columns: 7em auto;
+}
+.experience .details {
+  display: grid;
+  grid-gap: 0.3em;
+}
+.experience h3 {
+  margin: 0;
+  font-size: 1.4em;
+}
+.experience h3 small {
+  font-size: 0.7em;
+  text-transform: none;
+  opacity: 0.7;
+}
+.experience .about .company:after {
+  content: ",";
+}
+.experience ul {
+  margin: 0;
+  padding: 0;
+  padding-left: 1.5em;
+}
+.experience ul li {
+  list-style-type: square;
+}
+.experience p {
+  margin: 0;
+}
+
+/*# sourceMappingURL=design.css.map */
