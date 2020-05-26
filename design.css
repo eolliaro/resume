@@ -22,7 +22,8 @@ body {
 @media print {
   body {
     background: transparent;
-    padding: 1.3cm;
+    padding: 0;
+    margin: 0;
   }
 }
 
@@ -51,7 +52,7 @@ b {
   color: #000;
 }
 
-h1, h2, h3, .position, header ul {
+h1, h2, h3, .position {
   font-family: "Raleway", sans-serif;
   font-weight: normal;
 }
@@ -63,10 +64,12 @@ h1, h2, h3 {
 
 h2 {
   color: #03989e;
+  margin: 0.65cm 0;
 }
 
 h3 {
   font-size: 1.3em;
+  margin: 0;
 }
 
 header {
@@ -92,7 +95,7 @@ header ul, header li {
 }
 header ul {
   margin: 0.975cm 0;
-  font-size: 1.2em;
+  font-size: 1em;
 }
 header ul:before {
   text-transform: uppercase;
@@ -105,7 +108,7 @@ header ul li {
 
 .experience, .skill {
   display: grid;
-  grid-template-columns: 5em 1fr;
+  grid-template-columns: 5.3em 1fr;
   grid-gap: 0.65cm;
   page-break-inside: avoid;
 }
@@ -113,12 +116,12 @@ header ul li {
 .experience {
   margin: 0.65cm 0;
 }
+.experience.publication {
+  margin: 0.2166666667cm 0;
+}
 .experience .details {
   display: grid;
   grid-gap: 0.3em;
-}
-.experience h3 {
-  margin: 0;
 }
 .experience h3 small {
   font-size: 0.7em;
@@ -161,11 +164,12 @@ header ul li {
   grid-gap: 0.65cm;
   margin: 0.65cm 0;
 }
-.double-columns > div > *:first-child {
-  margin-top: 0;
+.double-columns .experience {
+  margin: 0;
+  margin-top: 0.2166666667cm;
 }
-.double-columns > div > *:last-child {
-  margin-bottom: 0;
+.double-columns .details ul {
+  margin-bottom: 0.2166666667cm;
 }
 
 .skill ul, .skill li, footer ul, footer li {
@@ -193,9 +197,9 @@ header ul li {
 
 footer {
   margin-top: 0.65cm;
-  border-top: 1px solid rgba(3, 152, 158, 0.5);
+  border-top: 1px solid rgba(3, 152, 158, 0.2);
   text-align: center;
-  padding: 0.325cm;
+  padding: 0.325cm 0;
 }
 @media print {
   footer {
@@ -208,8 +212,9 @@ footer {
 }
 footer a {
   color: rgba(3, 152, 158, 0.5);
-  margin: 0 1em;
+  margin: 0 0.8em;
   text-decoration: none;
+  font-size: 0.85em;
 }
 
 /*# sourceMappingURL=design.css.map */

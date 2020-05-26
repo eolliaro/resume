@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Raleway&display=swap');
 
 $spacer: .65cm;
+$spacer-small: $spacer/3;
 $page-margin: $spacer*2;
 $color-body: #333;
 $color-impact: #000;
@@ -10,7 +11,7 @@ $color-footer: transparentize($color-title, .5);
 $color-accent: $color-footer;
 $color-highlight: transparentize($color-accent, .3);
 
-$border-accent: 1px solid $color-accent;
+$border-accent: 1px solid $color-highlight;
 
 $content-size: 0.9em;
 
@@ -42,7 +43,8 @@ body {
 
   @include print-version {
     background: transparent;
-    padding: $page-margin;
+    padding: 0;
+    margin: 0;
     //margin: 25mm 25mm 25mm 25mm;
   }
 }
@@ -72,7 +74,7 @@ b {
   color: $color-impact;
 }
 
-h1, h2, h3, .position, header ul {
+h1, h2, h3, .position {
   font-family: 'Raleway', sans-serif;
   font-weight: normal;
 }
@@ -84,10 +86,12 @@ h1, h2, h3 {
 
 h2 {
   color: $color-title;
+  margin: $spacer 0;
 }
 
 h3 {
   font-size: 1.3em;
+  margin: 0;
 }
 
 header {
@@ -120,7 +124,7 @@ header {
 
   ul {
     margin: $spacer*1.5 0;
-    font-size: 1.2em;
+    font-size: 1em;
 
     &:before {
       //content: "Highlights";
@@ -139,7 +143,7 @@ header {
 
 .experience, .skill {
   display: grid;
-  grid-template-columns: 5em 1fr;
+  grid-template-columns: 5.3em 1fr;
   grid-gap: $spacer;
   page-break-inside:avoid;
 }
@@ -148,13 +152,16 @@ header {
 
   margin: $spacer 0;
 
+  &.publication {
+    margin: $spacer-small 0;
+  }
+
   .details {
     display: grid;
     grid-gap: .3em;
   }
 
   h3 {
-    margin: 0;
 
     small {
       font-size: .7em;
@@ -211,14 +218,15 @@ header {
   grid-gap: $spacer;
   margin: $spacer 0;
 
-  > div > * {
-    &:first-child {
-      margin-top: 0;
-    }
-    &:last-child {
-      margin-bottom: 0;
-    }
+  .experience {
+    margin: 0;
+    margin-top: $spacer-small ;
   }
+
+  .details ul {
+    margin-bottom: $spacer-small;
+  }
+
 }
 
 .skill, footer {
@@ -268,16 +276,16 @@ footer {
     background: #fff;
   }
 
-
   margin-top: $spacer;
   border-top: $border-accent;
   text-align: center;
-  padding: .5*$spacer;
+  padding: .5*$spacer 0;
 
   a {
     color: $color-footer;
-    margin: 0 1em;
+    margin: 0 .8em;
     text-decoration: none;
+    font-size: .85em;
   }
 
 
