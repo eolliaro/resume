@@ -27,11 +27,6 @@ $content-size: 0.9em;
   font-size: 21pt;
 }
 
-.spacer {
-  page-break-before: always;
-  height: $page-margin/2;
-}
-
 body {
   font-family: 'Lora', serif;
   font-weight: 400;
@@ -45,20 +40,29 @@ body {
     background: transparent;
     padding: 0;
     margin: 0;
-    //margin: 25mm 25mm 25mm 25mm;
   }
 }
+
+@include print-version {
+  @page {
+    margin: 1.5cm;
+  }
+}
+
 
 .page {
   max-width: 700px;
   background: #fff;
   margin: $spacer auto;
   padding: $spacer*2;
+  box-shadow: .2em .5em 1em rgba(0,0,0,0.1);
 
   @include print-version {
+    max-width: none;
     background: transparent;
     padding: 0;
     margin: 0;
+    box-shadow: none;
   }
 
 }
@@ -74,7 +78,7 @@ b {
   color: $color-impact;
 }
 
-h1, h2, h3, .position {
+h1, h2, h3 {
   font-family: 'Raleway', sans-serif;
   font-weight: normal;
 }
@@ -86,7 +90,7 @@ h1, h2, h3 {
 
 h2 {
   color: $color-title;
-  margin: $spacer 0;
+  margin: $spacer*1.5 0 $spacer*.5 0;
 }
 
 h3 {
@@ -110,9 +114,7 @@ header {
   }
 
   .position {
-    font-size: 1em;
-    margin: .5*$spacer 0;
-    color: $color-accent;
+    color: $color-title;
     text-transform: uppercase;
   }
 
@@ -131,6 +133,18 @@ header {
       text-transform: uppercase;
       font-size: 1.3em;
       color: $color-accent;
+    }
+
+    &.coordinates {
+
+      margin: $spacer;
+      font-size: .8em;
+
+      a {
+        color: $color-footer;
+        margin-left: 1em;
+        text-decoration: none;
+      }
     }
 
     li {
@@ -154,6 +168,10 @@ header {
 
   &.publication {
     margin: $spacer-small 0;
+  }
+
+  &:first-of-type {
+    margin-top: $spacer-small;
   }
 
   .details {
@@ -216,7 +234,6 @@ header {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: $spacer;
-  margin: $spacer 0;
 
   .experience {
     margin: 0;
@@ -225,14 +242,16 @@ header {
 
   .details ul {
     margin-bottom: $spacer-small;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
 }
 
-.skill, footer {
+.skill, header .coordinates {
 
-
-  ul, li {
+  ul, li, .details ul {
     display: inline-block;
     padding: 0;
     margin: 0;
@@ -262,31 +281,5 @@ header {
   .details {
     font-size: $content-size;
   }
-
-}
-
-
-footer {
-
-  @include print-version {
-    position: fixed;
-    bottom: 0;
-    left: $page-margin;
-    right: $page-margin;
-    background: #fff;
-  }
-
-  margin-top: $spacer;
-  border-top: $border-accent;
-  text-align: center;
-  padding: .5*$spacer 0;
-
-  a {
-    color: $color-footer;
-    margin: 0 .8em;
-    text-decoration: none;
-    font-size: .85em;
-  }
-
 
 }
