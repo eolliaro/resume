@@ -107,6 +107,8 @@ header {
     background-image: linear-gradient(
                     to top, $color-highlight 0, $color-highlight $limit,
                     transparent $limit, transparent 100%);
+    background-repeat: repeat-x;
+
     display: inline-block;
     padding: 0 $spacer;
   }

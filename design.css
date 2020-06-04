@@ -78,6 +78,7 @@ header h1 {
   margin: 0;
   font-size: 4em;
   background-image: linear-gradient(to top, rgba(3, 152, 158, 0.2) 0, rgba(3, 152, 158, 0.2) 60%, transparent 60%, transparent 100%);
+  background-repeat: repeat-x;
   display: inline-block;
   padding: 0 0.65cm;
 }
