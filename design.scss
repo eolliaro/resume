@@ -3,6 +3,7 @@
 $spacer: .65cm;
 $spacer-small: $spacer/3;
 $page-margin: 1.5cm;
+$page-margin-vertical: $page-margin*1.5;
 $page-width: 21cm - 2*$page-margin;
 $color-body: #333;
 $color-impact: #000;
@@ -26,7 +27,7 @@ $content-size: 0.9em;
 
 @include print-version {
   @page {
-    margin: $page-margin;
+    margin: $page-margin-vertical $page-margin;
     size: A4;
   }
 }
@@ -103,11 +104,13 @@ header {
   h1 {
     margin: 0;
     font-size: 4em;
-    $limit: 60%;
+    $limit: 40%;
     background-image: linear-gradient(
-                    to top, $color-highlight 0, $color-highlight $limit,
-                    transparent $limit, transparent 100%);
+                    to bottom, #fff -10%, #fff $limit, $color-highlight $limit,
+                     $color-highlight 90%);
     background-repeat: repeat-x;
+    background-size: 100% 100% ;
+    background-position: bottom center;
 
     display: inline-block;
     padding: 0 $spacer;

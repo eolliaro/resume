@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Raleway&display=swap");
 @media print {
   @page {
-    margin: 1.5cm;
+    margin: 2.25cm 1.5cm;
     size: A4;
   }
 }
@@ -77,8 +77,10 @@ header {
 header h1 {
   margin: 0;
   font-size: 4em;
-  background-image: linear-gradient(to top, rgba(3, 152, 158, 0.2) 0, rgba(3, 152, 158, 0.2) 60%, transparent 60%, transparent 100%);
+  background-image: linear-gradient(to bottom, #fff -10%, #fff 40%, rgba(3, 152, 158, 0.2) 40%, rgba(3, 152, 158, 0.2) 90%);
   background-repeat: repeat-x;
+  background-size: 100% 100%;
+  background-position: bottom center;
   display: inline-block;
   padding: 0 0.65cm;
 }
